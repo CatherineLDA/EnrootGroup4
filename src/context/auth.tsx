@@ -1,44 +1,44 @@
-import { onAuthStateChanged, User } from "firebase/auth";
-import { FC, createContext, useEffect, useState } from "react";
-import { auth } from "../firebase/config";
+// import { onAuthStateChanged, User } from "firebase/auth";
+// import { FC, createContext, useEffect, useState } from "react";
+// import { auth } from "../firebase/config";
 
-//create context 
-interface AuthContextType {
-    user: User | null;
-    isLoading: boolean;
-}
-export const AuthContext = createContext<AuthContextType>({
-    user: null,
-    isLoading: false,
-});
+// //create context 
+// interface AuthContextType {
+//     user: User | null;
+//     isLoading: boolean;
+// }
+// export const AuthContext = createContext<AuthContextType>({
+//     user: null,
+//     isLoading: false,
+// });
 
-//create provider 
-interface AuthProviderProps {
-    children: React.ReactElement;
-}
+// //create provider 
+// interface AuthProviderProps {
+//     children: React.ReactElement;
+// }
 
-export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
-    const [user, setUser] = useState<User | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+// export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
+//     const [user, setUser] = useState<User | null>(null);
+//     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    //check if user already logged in
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setUser(user);
-            setIsLoading(false);
-        });
+//     //check if user already logged in
+//     useEffect(() => {
+//         const unsubscribe = onAuthStateChanged(auth, (user) => {
+//             setUser(user);
+//             setIsLoading(false);
+//         });
 
-        return unsubscribe;
-    }, []);
+//         return unsubscribe;
+//     }, []);
 
-    const value = {
-        user,
-        isLoading,
-    };
+//     const value = {
+//         user,
+//         isLoading,
+//     };
 
-    return(
-        <AuthContext.Provider value={value}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+//     return(
+//         <AuthContext.Provider value={value}>
+//             {children}
+//         </AuthContext.Provider>
+//     )
+// }

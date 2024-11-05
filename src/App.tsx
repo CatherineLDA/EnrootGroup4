@@ -1,22 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home"
-import Signin from './pages/Signin';
-import { AuthProvider } from './context/auth';
-import PublicRoute from './routes/PublicRoute';
+//import Signin from './pages/Signin';
+//import { AuthProvider } from './context/auth';
+//import PublicRoute from './routes/PublicRoute';
 
 function App() {
 
   return (
-    <AuthProvider>
+    //<AuthProvider>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/signin" element={
+        {/* <Route path="/signin" element={
           <PublicRoute>
             <Signin />
           </PublicRoute>
-        }/>
+        }/> */}
       </Routes>
-    </AuthProvider>
+    //</AuthProvider>
       
   );
 }
