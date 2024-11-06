@@ -3,7 +3,11 @@ import { v4 as uuidv4 } from "uuid"
 import { useSupabaseClient } from "@supabase/auth-helpers-react"
 
 
-const UploadForm = () => {
+interface UploadFormProps {
+  onUploadSuccess: () => void;  
+}
+
+const UploadForm = ({ onUploadSuccess }: UploadFormProps) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const supabase = useSupabaseClient();
 
@@ -31,6 +35,7 @@ const UploadForm = () => {
         console.error("Error uploading file:", error);
       } else {
         console.log("File uploaded successfully:", data);
+        onUploadSuccess();
       }
     } catch (error) {
       console.error("Unexpected error:", error);
