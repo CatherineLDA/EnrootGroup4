@@ -31,8 +31,6 @@ const UploadForm = () => {
         console.error("Error uploading file:", error);
       } else {
         console.log("File uploaded successfully:", data);
-        // Call a function to fetch images, if needed
-        // getImages();
       }
     } catch (error) {
       console.error("Unexpected error:", error);
