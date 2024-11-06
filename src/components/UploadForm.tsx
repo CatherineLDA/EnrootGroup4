@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { useSupabaseClient } from "@supabase/auth-helpers-react"
+import { supabaseClient } from "../supabase/SupabaseClient"
 
 
 interface UploadFormProps {
@@ -9,7 +9,6 @@ interface UploadFormProps {
 
 const UploadForm = ({ onUploadSuccess }: UploadFormProps) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const supabase = useSupabaseClient();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(e.target.files && e.target.files[0]) {
@@ -26,7 +25,7 @@ const UploadForm = ({ onUploadSuccess }: UploadFormProps) => {
       // Generate a unique path with user ID (if applicable) and a UUID
       const filePath = `public/${uuidv4()}_${selectedFile.name}`;
 
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
         .storage
         .from("images") // Ensure "images" is the name of your Supabase storage bucket
         .upload(filePath, selectedFile);
@@ -49,7 +48,12 @@ const UploadForm = ({ onUploadSuccess }: UploadFormProps) => {
           type="file" 
           onChange={handleFileChange}
           className="file-input file-input-bordered w-full max-w-xs" />
-        <button type='submit' className="btn gap-3">Upload</button>
+        <button 
+          type='submit' 
+          className="btn gap-3 "
+          style={{ backgroundColor: "#484e5e", color: "#fff" }}>
+            Upload
+        </button>
       </form>
     </div>
   )

@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { supabaseClient } from '../supabase/SupabaseClient';
 
 const ImageGallery = () => {
   const [images, setImages] = useState<{ url: string; name: string }[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true); // Loading state
-  const supabase = useSupabaseClient();
 
   // Function to fetch images from Supabase
   const getImages = async () => {
     try {
       setLoading(true); // Set loading to true when fetching images
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
         .storage
         .from('images')
         .list('public/');
@@ -26,7 +25,7 @@ const ImageGallery = () => {
 
       // Generate public URLs for each image
       const imageUrls = filteredData?.map((file) => ({
-        url: supabase.storage.from('images').getPublicUrl(`public/${file.name}`).data.publicUrl,
+        url: supabaseClient.storage.from('images').getPublicUrl(`public/${file.name}`).data.publicUrl,
         name: file.name,
       })) || [];
 
