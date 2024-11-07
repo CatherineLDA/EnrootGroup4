@@ -10,10 +10,12 @@ const ToteGallery = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div>
       <Navbar />
-      <UploadForm onUploadSuccess={handleUploadSuccess} />
-      <ImageGallery />
+      <div className="max-w-screen-lg mx-auto mt-5 mb-10 flex-grow">
+        <UploadForm onUploadSuccess={handleUploadSuccess} />
+        <ImageGallery />
+      </div>
     </div>
   );
 };

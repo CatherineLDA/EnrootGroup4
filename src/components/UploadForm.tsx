@@ -42,7 +42,7 @@ const UploadForm = ({ onUploadSuccess }: UploadFormProps) => {
   }
 
   return (
-    <div className="text-center mt-10">
+    <div className="text-center mt-5">
       <form onSubmit={handleSubmit} className="flex items-center flex-col gap-8">
         <input 
           type="file" 
@@ -51,12 +51,12 @@ const UploadForm = ({ onUploadSuccess }: UploadFormProps) => {
         <button 
           type='submit' 
           className="btn gap-3 "
-          style={{ backgroundColor: "#484e5e", color: "#fff" }}>
+          style={{ backgroundColor: "#4c6ef5", color: "#fff" }}> 
             Upload
         </button>
       </form>
     </div>
   )
-}
+} //[#ff69b4] via-[#4c6ef5] to-[#9b4dca]
 
 export default UploadForm

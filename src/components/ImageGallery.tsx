@@ -44,24 +44,22 @@ const ImageGallery = () => {
   }, []);
 
   return (
-    <div className="mt-10">
-      {loading && <p className="text-center">Loading images...</p>} {/* Display loading message while fetching */}
-      
-      {/* If there's an error, display the error message */}
+    <div className="mt-10 max-w-screen-lg mx-auto px-4">
+      {loading && <p className="text-center">Loading images...</p>}
       {error && <p className="text-red-500">{error}</p>}
-
-      {/* Only render the gallery if images are available */}
       {!loading && !error && images.length === 0 && (
         <p className="text-center">No images found in the gallery.</p>
       )}
-
-      {/* Only render the gallery if images are available */}
       {!loading && !error && images.length > 0 && (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {images.map((image, index) => (
             <div key={index} className="card card-compact bg-base-100 shadow-xl">
-              <figure>
-                <img src={image.url} alt={"Design ${index + 1}"} className="w-full h-64 object-cover" />
+              <figure className="h-64">
+                <img
+                  src={image.url}
+                  alt={`Design ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Design {index + 1}</h2>
