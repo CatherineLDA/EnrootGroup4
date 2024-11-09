@@ -4,12 +4,12 @@ import { supabaseClient } from '../supabase/SupabaseClient';
 const ImageGallery = () => {
   const [images, setImages] = useState<{ url: string; name: string }[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Function to fetch images from Supabase
   const getImages = async () => {
     try {
-      setLoading(true); // Set loading to true when fetching images
+      setLoading(true);
       const { data, error } = await supabaseClient
         .storage
         .from('images')
@@ -24,17 +24,17 @@ const ImageGallery = () => {
       const filteredData = data?.filter((file) => file.name !== '.emptyFolderPlaceholder') || [];
 
       // Generate public URLs for each image
-      const imageUrls = filteredData?.map((file) => ({
+      const imageUrls = filteredData.map((file) => ({
         url: supabaseClient.storage.from('images').getPublicUrl(`public/${file.name}`).data.publicUrl,
         name: file.name,
       })) || [];
 
-      setImages(imageUrls); // Update state with the image URLs
+      setImages(imageUrls);
     } catch (error) {
       setError('Failed to load images.');
       console.error(error);
     } finally {
-      setLoading(false); // Set loading to false when done
+      setLoading(false);
     }
   };
 
@@ -53,7 +53,7 @@ const ImageGallery = () => {
       {!loading && !error && images.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {images.map((image, index) => (
-            <div key={index} className="card card-compact bg-base-100 shadow-xl">
+            <div key={index} className="card card-compact bg-white shadow-xl">
               <figure className="h-64">
                 <img
                   src={image.url}
@@ -62,7 +62,7 @@ const ImageGallery = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Design {index + 1}</h2>
+                <h2 className="card-title text-gray-900">Design {index + 1}</h2> {/* Fixed color */}
               </div>
             </div>
           ))}

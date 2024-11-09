@@ -5,10 +5,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full bg-gradient-to-l from-[#ff69b4] via-[#4c6ef5] to-[#9b4dca] text-white sticky top-0 px-5 z-50 shadow-xl h-16">
+    <div className="w-full bg-[#4bc0c8] to-[#ffb347] text-white sticky top-0 px-5 z-50 shadow-xl h-16">
+
       <div className="flex justify-between items-center w-full h-full">
         <Link to="/">
-          <span className="font-bold text-xl">❤️ TOTE-ally Yours</span>
+          <span className="font-bold text-xl">🎨 TOTE-ally Yours</span>
         </Link>
         
         {/* Mobile menu toggle button */}
@@ -21,6 +22,9 @@ const Navbar = () => {
         
         {/* Navbar links */}
         <div className={`flex-col sm:flex sm:flex-row sm:items-center sm:space-x-4 absolute sm:static top-16 left-0 w-full sm:w-auto bg-[#4c6ef5] sm:bg-transparent text-white ${isOpen ? "block" : "hidden"} sm:block`}>
+          <Link to="/" className="w-full sm:w-auto">
+            <button className="w-full sm:w-auto py-2 px-4 text-center font-semibold bg-transparent hover:bg-white hover:bg-opacity-20 rounded-lg transition duration-200 ease-in-out">Home</button>
+          </Link>
           <Link to="/tote-gallery" className="w-full sm:w-auto">
             <button className="w-full sm:w-auto py-2 px-4 text-center font-semibold bg-transparent hover:bg-white hover:bg-opacity-20 rounded-lg transition duration-200 ease-in-out">Tote Bag Designs</button>
           </Link>
