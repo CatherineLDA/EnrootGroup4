@@ -1,13 +1,13 @@
 import ImageGallery from "../components/ImageGallery";
 import Navbar from "../components/Navbar";
-import UploadForm from "../components/UploadForm";
+// import UploadForm from "../components/UploadForm";
 
 const ToteGallery = () => {
-  const handleUploadSuccess = () => {
-    // Trigger a re-fetch of images after upload
-    const event = new CustomEvent('image-uploaded');
-    window.dispatchEvent(event); // Use a custom event to notify that the image is uploaded
-  };
+  // const handleUploadSuccess = () => {
+  //   // Trigger a re-fetch of images after upload
+  //   const event = new CustomEvent('image-uploaded');
+  //   window.dispatchEvent(event); // Use a custom event to notify that the image is uploaded
+  // };
 
   return (
     <div>
