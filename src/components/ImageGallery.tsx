@@ -93,7 +93,7 @@ const ImageGallery = () => {
               className="card card-compact bg-white shadow-xl cursor-pointer"
               onClick={() => openModal(image)} // Open modal on click
             >
-              <figure className="h-64">
+              <figure className="h-96">
                 <img
                   src={image.url}
                   alt={`Design ${index + 1}`}

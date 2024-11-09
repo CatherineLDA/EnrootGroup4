@@ -12,8 +12,9 @@ const ToteGallery = () => {
   return (
     <div>
       <Navbar />
+      <h1 className="mt-5 text-center text-2xl">Click on the images for a better view!</h1>
       <div className="max-w-screen-lg mx-auto mt-5 mb-10 flex-grow">
-        <UploadForm onUploadSuccess={handleUploadSuccess} />
+        {/* <UploadForm onUploadSuccess={handleUploadSuccess} /> */}
         <ImageGallery />
       </div>
     </div>
