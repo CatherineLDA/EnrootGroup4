@@ -45,7 +45,7 @@ const ImageModal = ({ image, images, onClose, onPrev, onNext }: ImageModalProps)
             {'>'}
           </button>
         </div>
-        <p className="text-center text-lg font-semibold">Design {image.index}</p>
+        <p className="text-center text-lg text-gray-600 font-semibold">Design {image.index + 1}</p>
       </div>
     </div>
   );
