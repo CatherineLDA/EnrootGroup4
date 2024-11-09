@@ -16,11 +16,11 @@ const Home = () => {
         <div className="max-w-5xl mx-auto my-6 bg-white shadow-lg rounded-xl overflow-hidden">
           <div className="p-6">
             <p className="py-6 max-w-2xl mx-auto font-semibold text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600">
-             🎨Unleash your creativity and join us for an exciting evening at "Tote-ally
-              Yours"! Grab your friends and express your artistic flair as we design
+             🎨 Unleash your creativity and join us for an exciting evening at Tote-ally
+              Yours! Grab your friends and express your artistic flair as we design
               unique tote bags together!
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm sm:text-base">
               Date: 7 November 2024 | Time: 7PM - 10PM | Location: Think Tank 26
             </p>
             <br/>
